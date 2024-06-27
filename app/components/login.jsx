@@ -1,30 +1,25 @@
 "use client";
 import { Card, Input, Form, Button, message } from "antd";
 import { useState } from "react";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 export default function Login() {
+  var [email, setEmail] = useState();
+  var [password, setPassword] = useState("");
+  var router= useRouter("");
 
-var[ email,setEmail]=useState();
-var[password,setPassword]=useState("");
-var router = useRouter();
-
-  function handleEmail(evt){
+  function handleEmail(evt) {
     setEmail(evt.target.value);
-    
   }
-  function handlePassword(evt){
-  setPassword(evt.target.value);
-    
+  function handlePassword(evt) {
+    setPassword(evt.target.value);
   }
-  function handleLogin(){
-   if(email=="cece@yahoo.com"&& password=="12345"){
+  function handleLogin() {
+    if (email == "cece@yahoo.com" && password == "12345") {
       message.success("login sucessful");
       router.push("/dashboard");
-    }
-    else{
+    } else {
       message.error("login fail");
     }
-   
   }
   return (
     <Card title="My Login" className=" m-auto mt-40 sm:w-1/2">
@@ -35,10 +30,15 @@ var router = useRouter();
         </Form.Item>
 
         <Form.Item>
-          <Input.Password placeholder="Enter Password" onChange={handlePassword}/>
+          <Input.Password
+            placeholder="Enter Password"
+            onChange={handlePassword}
+          />
         </Form.Item>
       </Form>
-      <Button type="primary"onClick={handleLogin}>Login</Button>
+      <Button type="primary" onClick={handleLogin}>
+        Login
+      </Button>
     </Card>
   );
 }
