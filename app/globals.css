@@ -28,6 +28,7 @@ body {
     height: 100vh;
 }
 
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

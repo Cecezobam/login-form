@@ -3,9 +3,9 @@ import { Card, Input, Form, Button, message } from "antd";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 export default function Login() {
-  var [email, setEmail] = useState();
+  var [email, setEmail] = useState("");
   var [password, setPassword] = useState("");
-  var router= useRouter("");
+  var router = useRouter("");
 
   function handleEmail(evt) {
     setEmail(evt.target.value);
@@ -15,7 +15,7 @@ export default function Login() {
   }
   function handleLogin() {
     if (email == "cece@yahoo.com" && password == "12345") {
-      message.success("login sucessful");
+      message.success("login successful");
       router.push("/dashboard");
     } else {
       message.error("login fail");
